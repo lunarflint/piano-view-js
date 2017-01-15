@@ -1,0 +1,22 @@
+<html>
+<head><title>piano-view-js demo</title></head>
+<body>
+<canvas id="piano" width="800" height="300"></canvas>
+<div id="display"> </div>
+<script src="piano-view.js"></script>
+<script>
+	var canvas = document.getElementById('piano');
+	var display = document.getElementById('display');
+
+	var piano = new PianoView(canvas);
+	piano.setScale(0.5);
+
+	canvas.addEventListener('keydown', function(ev) {
+		display.innerHTML = 'Last event: keydown: ' + JSON.stringify(ev.detail);
+	});
+	canvas.addEventListener('keyup', function(ev) {
+		display.innerHTML = 'Last event: keyup: ' + JSON.stringify(ev.detail);
+	});
+</script>
+</body>
+</html>
